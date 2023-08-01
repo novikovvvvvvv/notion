@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+    <style>
+        .widget {
+            padding: 15px 15px ;
+            color: #000000;
+            text-align: left;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 2px black;
+            color:white;
+        }
+        div {
+             width: 300px;
+             min-height: 300px;
+            background: url(https://hips.hearstapps.com/hmg-prod/images/pillars-of-creation-visible-and-midi-1666987280.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            border-radius: 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="widget" id="widget" style="display:flex;align-items:center"></div>
+<script>
+quotes=[
+"I must feed my will to feel my moment drawing way outside the lines",
+"Push the envelope, watch it bend",
+"Reach out to embrace the random, reach out to embrace whatever may come",
+"Ride the spiral to the end and maybe go where no one's been",
+"I wanna feel the changes coming down, I wanna know what I've been hiding",
+"Change is coming. Now is my time.",
+"Listen to your muscle memory, contemplate what you've been clinging to",
+"Mobilize. Stay alive",
+"A tempest must be true to its nature",
+"Your doubt's not an option"
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+</script>
+
+</body>
+</html>
